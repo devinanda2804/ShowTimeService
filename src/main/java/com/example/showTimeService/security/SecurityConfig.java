@@ -23,18 +23,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/movies/**").permitAll() // Allow public access to movie endpoints
-                .antMatchers("/api/admin/**").hasRole("ADMIN") // Secure admin endpoints
-                .anyRequest().authenticated() // All other requests require authentication
+                .antMatchers("/api/movies/**","/api/admin/**").permitAll()
+             /*   .antMatchers("/api/admin/**").hasRole("ADMIN")*/
+                .anyRequest().authenticated()
                 .and()
-                .httpBasic(); // Use HTTP Basic authentication
+                .httpBasic();
     }
 
-    @Override
+   /* @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("admin")
                 .password(passwordEncoder().encode("admin"))
                 .roles("ADMIN");
-    }
+    }*/
 }
