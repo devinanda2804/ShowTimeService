@@ -1,5 +1,6 @@
 package com.example.showTimeService.config;
 
+import feign.Logger;
 import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,21 +22,53 @@ import feign.RequestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.Base64Utils;
+/*
 
 @Configuration
 public class FeignClientConfig {
 
+    // Feign Request Interceptor for Logging or Dynamic Headers
     @Bean
     public RequestInterceptor requestInterceptor() {
         return new RequestInterceptor() {
             @Override
             public void apply(RequestTemplate template) {
-                String auth = "admin:admin"; // Use your credentials here
-                String encodedAuth = "Basic " + Base64Utils.encodeToString(auth.getBytes());
-                template.header(HttpHeaders.AUTHORIZATION, encodedAuth);
+                // For debugging or adding global headers
+                System.out.println("Request to: " + template.url());
             }
         };
     }
-}
 
+    // Feign Logger Level
+    @Bean
+    public Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL; // Enables detailed logging
+    }
+}
+*/
+@Configuration
+public class FeignClientConfig {
+
+    @Bean
+    public RequestInterceptor requestInterceptor() {
+        return requestTemplate -> {
+            // Retrieve the JWT token from the SecurityContext
+            String jwtToken = getJwtToken();
+            if (jwtToken != null) {
+                requestTemplate.header("Authorization", "Bearer " + jwtToken);
+            }
+        };
+    }
+
+    private String getJwtToken() {
+        // Retrieve the JWT token from the SecurityContext
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getCredentials() instanceof String) {
+            return (String) authentication.getCredentials();
+        }
+        return null; // Return null if no JWT token is found
+    }
+}

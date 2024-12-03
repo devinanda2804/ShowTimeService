@@ -26,11 +26,11 @@ public class ShowtimeService {
 
 
    public Showtime addShowtime(int movieId, LocalDate showDate, LocalTime time) {
-       Boolean movieExists = movieClient.checkIfMovieExists(movieId).getBody();
+      /* Boolean movieExists = movieClient.checkIfMovieExists(movieId).getBody();
 
        if (movieExists == null || !movieExists) {
            throw new RuntimeException("Movie ID does not exist.");
-       }
+       }*/
 
        Showtime showtime = new Showtime(movieId, showDate, time);
        return showtimeRepository.save(showtime);
