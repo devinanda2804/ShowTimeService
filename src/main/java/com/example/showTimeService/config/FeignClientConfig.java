@@ -15,7 +15,7 @@ public class FeignClientConfig {
 }
 */
 
-
+/*
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.context.annotation.Bean;
@@ -36,6 +36,6 @@ public class FeignClientConfig {
                 template.header(HttpHeaders.AUTHORIZATION, encodedAuth);
             }
         };
-    }
+    }*/
 }
 
