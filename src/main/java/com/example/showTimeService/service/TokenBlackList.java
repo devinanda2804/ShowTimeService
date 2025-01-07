@@ -1,4 +1,4 @@
-package com.example.movieService.service;
+package com.example.showTimeService.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

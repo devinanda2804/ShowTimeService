@@ -45,6 +45,7 @@ public class ShowtimeController {
         return ResponseEntity.noContent().build();
     }
 
+
     @GetMapping("/{showTimeId}/exists")
     public ResponseEntity<Boolean> checkIfShowTimeExists(@PathVariable int showTimeId) {
         boolean exists = showtimeService.existsById(showTimeId);

@@ -3,6 +3,8 @@ package com.example.showTimeService.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,15 +16,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-<<<<<<< HEAD
+
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
-=======
+
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); 
+        return new BCryptPasswordEncoder();
     }
->>>>>>> f33336a50e523223ef6e8f3b512f40d9718d4200
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

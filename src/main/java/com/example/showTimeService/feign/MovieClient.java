@@ -1,3 +1,4 @@
+/*
 package com.example.showTimeService.feign;
 
 import com.example.showTimeService.config.FeignClientConfig;
@@ -14,3 +15,4 @@ public interface MovieClient {
      @GetMapping("/{movieId}/exists")
     public ResponseEntity<Boolean> checkIfMovieExists(@PathVariable int movieId);
 }
+*/

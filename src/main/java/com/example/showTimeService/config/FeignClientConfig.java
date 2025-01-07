@@ -44,16 +44,8 @@ public class FeignClientConfig {
     }
 =======
     }*/
-}
->>>>>>> f33336a50e523223ef6e8f3b512f40d9718d4200
 
-    // Feign Logger Level
-    @Bean
-    public Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL; // Enables detailed logging
-    }
-}
-*/
+/*
 @Configuration
 public class FeignClientConfig {
 
@@ -77,3 +69,4 @@ public class FeignClientConfig {
         return null; // Return null if no JWT token is found
     }
 }
+*/

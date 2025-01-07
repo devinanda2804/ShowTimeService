@@ -3,7 +3,7 @@
 package com.example.showTimeService.service;
 
 /*import com.example.showTimeService.feign.MovieClient;*/
-import com.example.showTimeService.feign.MovieClient;
+/*import com.example.showTimeService.feign.MovieClient;*/
 import com.example.showTimeService.model.Showtime;
 import com.example.showTimeService.repository.ShowtimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,8 @@ public class ShowtimeService {
     @Autowired
     private ShowtimeRepository showtimeRepository;
 
-   @Autowired
-   private MovieClient movieClient;
+ /*  @Autowired
+   private MovieClient movieClient;*/
 
 
    public Showtime addShowtime(int movieId, LocalDate showDate, LocalTime time) {
