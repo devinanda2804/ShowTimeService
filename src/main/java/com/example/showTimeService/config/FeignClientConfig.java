@@ -16,7 +16,7 @@ public class FeignClientConfig {
 }
 */
 
-
+/*
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.context.annotation.Bean;
@@ -40,7 +40,12 @@ public class FeignClientConfig {
                 System.out.println("Request to: " + template.url());
             }
         };
+<<<<<<< HEAD
     }
+=======
+    }*/
+}
+>>>>>>> f33336a50e523223ef6e8f3b512f40d9718d4200
 
     // Feign Logger Level
     @Bean

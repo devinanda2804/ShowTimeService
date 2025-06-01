@@ -14,8 +14,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+<<<<<<< HEAD
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
+=======
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(); 
+    }
+>>>>>>> f33336a50e523223ef6e8f3b512f40d9718d4200
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
